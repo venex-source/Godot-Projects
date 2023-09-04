@@ -1,0 +1,308 @@
+[gd_scene load_steps=24 format=3 uid="uid://c6glhr8h2lihd"]
+
+[ext_resource type="PackedScene" uid="uid://dfyw3divqjwp4" path="res://scene/UserInterface/Level_Menu_UI/level_grid.tscn" id="1_6gxkg"]
+[ext_resource type="Script" path="res://scene/UserInterface/Level_Menu_UI/level_menu.gd" id="1_f3ij0"]
+[ext_resource type="Texture2D" uid="uid://dpcgdvwb3u13o" path="res://assets/Sprites/game_buttons.png" id="2_ow6vg"]
+[ext_resource type="Texture2D" uid="uid://cs1hgh4pie8ut" path="res://assets/bg.png" id="2_u21hd"]
+[ext_resource type="Texture2D" uid="uid://4si3k274mju6" path="res://assets/header.png" id="4_ftdug"]
+[ext_resource type="PackedScene" path="res://scene/UserInterface/fader.tscn" id="5_2bxhn"]
+[ext_resource type="Theme" uid="uid://yhnx08vjtvl6" path="res://assets/Themes/main.tres" id="7_3mr8w"]
+[ext_resource type="AudioStream" uid="uid://dxf4cfbg8241c" path="res://assets/Audio/click.wav" id="7_oq6bt"]
+[ext_resource type="Texture2D" uid="uid://dbdfh1powy4hh" path="res://assets/Sprites/LevelComplete/YouWin.png" id="8_7rbu4"]
+[ext_resource type="Texture2D" uid="uid://csmymuhhy64de" path="res://assets/Sprites/LevelComplete/star_4.png" id="9_81mry"]
+[ext_resource type="PackedScene" uid="uid://c7eqlaekl6wlr" path="res://scene/UserInterface/retry_button.tscn" id="10_u0bkb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vg87"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(668.646, 96.8639, 46.6757, 47.3783)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk3bt"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(668.593, 226.729, 46.5672, 47.4317)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3eew"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(668.593, 226.729, 46.5672, 47.4317)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7xsn"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(100.612, 31.9282, 45.6842, 47.2955)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ume"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(100.54, 162.133, 45.6742, 47.1094)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdvab"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(100.54, 162.133, 45.6742, 47.1094)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbk52"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(542.837, 31.8106, 46.485, 47.4046)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0qkp"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(542.675, 161.68, 46.6202, 47.4266)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6x2l"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(542.675, 161.68, 46.6202, 47.4266)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h5u6"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(416.513, 96.5131, 45.8093, 47.8912)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w7jy"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(416.685, 226.838, 45.7721, 47.5665)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qvn"]
+atlas = ExtResource("2_ow6vg")
+region = Rect2(416.685, 226.838, 45.7721, 47.5665)
+filter_clip = true
+
+[node name="LevelMenu" type="Control"]
+texture_filter = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f3ij0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.654902, 0.482353, 0.231373, 1)
+metadata/_edit_lock_ = true
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 32.0
+offset_right = 129.0
+offset_bottom = 117.0
+texture_normal = SubResource("AtlasTexture_1vg87")
+texture_pressed = SubResource("AtlasTexture_nk3bt")
+texture_hover = SubResource("AtlasTexture_r3eew")
+ignore_texture_size = true
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -314.0
+offset_top = -321.0
+offset_right = 314.0
+offset_bottom = 321.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_u21hd")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 19.0
+offset_right = -68.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="LevelSelectContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+visible = false
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Background/MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_ftdug")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CenterContainer" type="CenterContainer" parent="Background/MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+
+[node name="LevelGrid" parent="Background/MarginContainer/LevelSelectContainer/CenterContainer" instance=ExtResource("1_6gxkg")]
+layout_mode = 2
+
+[node name="LevelCompleteContainer" type="VBoxContainer" parent="Background/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("7_3mr8w")
+metadata/_edit_group_ = true
+
+[node name="MessageTexture" type="TextureRect" parent="Background/MarginContainer/LevelCompleteContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+texture = ExtResource("8_7rbu4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StarsTexture" type="TextureRect" parent="Background/MarginContainer/LevelCompleteContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("9_81mry")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer"]
+layout_mode = 2
+
+[node name="ScoreContainer" type="HBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessgaeLabel" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Score:"
+
+[node name="Label" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/VBoxContainer/ScoreContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 40
+text = "2 : 30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinPickedContainer" type="HBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessgaeLabel" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/VBoxContainer/CoinPickedContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Coins Picked:"
+
+[node name="Label" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/VBoxContainer/CoinPickedContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 40
+text = "400"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="RetryBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RetryButton" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/RetryBoxContainer" instance=ExtResource("10_u0bkb")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/RetryBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="TextureButton" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/NextBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_w7xsn")
+texture_pressed = SubResource("AtlasTexture_v6ume")
+texture_hover = SubResource("AtlasTexture_mdvab")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/NextBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Next"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelsBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelsButton" type="TextureButton" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/LevelsBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_cbk52")
+texture_pressed = SubResource("AtlasTexture_i0qkp")
+texture_hover = SubResource("AtlasTexture_i6x2l")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/LevelsBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Levels"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HomeBoxContainer" type="VBoxContainer" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeButton" type="TextureButton" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/HomeBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_4h5u6")
+texture_pressed = SubResource("AtlasTexture_5w7jy")
+texture_hover = SubResource("AtlasTexture_31qvn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/HomeBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Home"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Fader" parent="." instance=ExtResource("5_2bxhn")]
+layout_mode = 1
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_oq6bt")
+bus = &"SoundEffect"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_up" from="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/NextBoxContainer/NextButton" to="." method="_on_next_button_up"]
+[connection signal="button_up" from="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/LevelsBoxContainer/LevelsButton" to="." method="_on_levels_button_up"]
+[connection signal="button_up" from="Background/MarginContainer/LevelCompleteContainer/ButtonsContainer/HomeBoxContainer/HomeButton" to="." method="_on_home_button_up"]

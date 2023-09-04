@@ -1,0 +1,128 @@
+[gd_scene load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scene/Actor/enemies/Frog.gd" id="1_yx30w"]
+[ext_resource type="Texture2D" uid="uid://bmwn3hjsxuoic" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/frog/jump/frog-jump-2.png" id="2_tc8ej"]
+[ext_resource type="Texture2D" uid="uid://d065ie5eb0whb" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/frog/idle/frog-idle-1.png" id="3_0xcpd"]
+[ext_resource type="Texture2D" uid="uid://rx08nmmxa1tu" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/frog/idle/frog-idle-2.png" id="4_0u3p7"]
+[ext_resource type="Texture2D" uid="uid://cfli2mlrt388o" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/frog/idle/frog-idle-3.png" id="5_etw4g"]
+[ext_resource type="Texture2D" uid="uid://davl0lp38vr5u" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/frog/idle/frog-idle-4.png" id="6_bm4k2"]
+[ext_resource type="Texture2D" uid="uid://ct2xole4jpdkr" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/frog/jump/frog-jump-1.png" id="7_5u4ac"]
+[ext_resource type="PackedScene" uid="uid://beawcnp3onjot" path="res://scene/Components/attack_box_component.tscn" id="8_fb4bg"]
+[ext_resource type="PackedScene" uid="uid://bq01whirr6okm" path="res://scene/Components/hit_box_component.tscn" id="9_l02xw"]
+[ext_resource type="Script" path="res://scene/Components/GravityComponent.gd" id="10_5d53s"]
+[ext_resource type="PackedScene" uid="uid://duoica4hrjgci" path="res://scene/Components/HurtBoxComponent.tscn" id="10_dl4kp"]
+[ext_resource type="PackedScene" path="res://scene/Actor/enemies/stats.tscn" id="11_osmq7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkshu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_tc8ej")
+}],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0xcpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0u3p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_etw4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bm4k2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0xcpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0xcpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0xcpd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_5u4ac")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jppl"]
+size = Vector2(20, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m0cts"]
+radius = 67.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_he6t7"]
+size = Vector2(21, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0twwh"]
+size = Vector2(19, 14)
+
+[node name="Frog" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_yx30w")
+JUMP_VELOCITY = 50.0
+mob_point = null
+SPEED = 40.0
+gravity = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_xkshu")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_2jppl")
+
+[node name="AttackBoxComponent" parent="." instance=ExtResource("8_fb4bg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBoxComponent"]
+shape = SubResource("CircleShape2D_m0cts")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("9_l02xw")]
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_he6t7")
+debug_color = Color(0.988235, 0, 0.298039, 0.419608)
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("10_dl4kp")]
+collision_mask = 128
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(-0.5, 4)
+shape = SubResource("RectangleShape2D_0twwh")
+debug_color = Color(0.6, 0.545098, 0, 0.419608)
+
+[node name="Stats" parent="." instance=ExtResource("11_osmq7")]
+
+[node name="Gravity" type="Node" parent="."]
+script = ExtResource("10_5d53s")
+acceleration = 70.0
+
+[node name="CoolTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="chase_began" from="AttackBoxComponent" to="." method="_on_chase_began"]
+[connection signal="chase_ended" from="AttackBoxComponent" to="." method="_on_chase_ended"]
+[connection signal="out_of_health" from="Stats" to="." method="_on_stats_out_of_health"]
+[connection signal="timeout" from="CoolTimer" to="." method="_on_cool_timer_timeout"]
+
+[editable path="HurtBoxComponent"]

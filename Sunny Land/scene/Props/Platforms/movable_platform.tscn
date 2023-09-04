@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://du005ooxtufc0"]
+
+[ext_resource type="Texture2D" uid="uid://fos8l2ll4t6w" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/platform-long.png" id="1_xeiek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wedu"]
+size = Vector2(32, 16)
+
+[node name="MovablePlatform" type="AnimatableBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xeiek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0wedu")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://by4h3mh0ave6c"]
+
+[ext_resource type="Texture2D" uid="uid://cwsegj8spsovc" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/house.png" id="1_3emee"]
+[ext_resource type="Script" path="res://scene/Props/safe_house.gd" id="1_tdwpx"]
+[ext_resource type="Texture2D" uid="uid://bljjhdus73k8" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/door.png" id="2_t5r56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f56u3"]
+size = Vector2(21.894, 33)
+
+[node name="SafeHouse" type="Area2D"]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource("1_tdwpx")
+
+[node name="HouseSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3emee")
+
+[node name="DoorSprite" type="Sprite2D" parent="."]
+position = Vector2(-9.515, 37.431)
+texture = ExtResource("2_t5r56")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.5, 37.5)
+shape = SubResource("RectangleShape2D_f56u3")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

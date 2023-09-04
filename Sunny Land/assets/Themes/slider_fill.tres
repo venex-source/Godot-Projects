@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://c41ctouudmw3t"]
+
+[ext_resource type="Texture2D" uid="uid://00bapuykubml" path="res://assets/Sprites/buttons.png" id="1_cjsfa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2sc7"]
+atlas = ExtResource("1_cjsfa")
+region = Rect2(72.081, 130.834, 37.9718, 11.351)
+
+[resource]
+texture = SubResource("AtlasTexture_a2sc7")
+axis_stretch_horizontal = 1

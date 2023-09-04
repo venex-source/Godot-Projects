@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://d05humyd3jmxg"]
+
+[ext_resource type="Texture2D" uid="uid://csbccqop6se4r" path="res://assets/Sprites/sunny-land-phaser-project/assets/environment/back.png" id="1_ad67x"]
+[ext_resource type="Texture2D" uid="uid://dmyt4uhccbc2g" path="res://assets/Sprites/sunny-land-phaser-project/assets/environment/middle.png" id="2_w2h4h"]
+
+[node name="BG" type="ParallaxBackground"]
+
+[node name="Sky" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Back" type="Sprite2D" parent="Sky"]
+scale = Vector2(3, 2.7)
+texture = ExtResource("1_ad67x")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(439, 400)
+motion_scale = Vector2(0.4, 1)
+motion_mirroring = Vector2(1232, 0)
+
+[node name="Middle1" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-352, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(-176, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(0, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)
+
+[node name="Middle4" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(176, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)
+
+[node name="Middle5" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(352, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)
+
+[node name="Middle6" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(528, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)
+
+[node name="Middle7" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(704, 179)
+texture = ExtResource("2_w2h4h")
+region_enabled = true
+region_rect = Rect2(0, 0, 176, 600)

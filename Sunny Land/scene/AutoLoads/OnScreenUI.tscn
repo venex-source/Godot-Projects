@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuc5h8kydkq2j"]
+
+[ext_resource type="Script" path="res://scene/AutoLoads/on_screen_ui.gd" id="1_d6by3"]
+
+[node name="OnScreenUI" type="Node"]
+script = ExtResource("1_d6by3")

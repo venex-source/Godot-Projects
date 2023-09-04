@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://yhnx08vjtvl6"]
+
+[ext_resource type="Texture2D" uid="uid://00bapuykubml" path="res://assets/Sprites/buttons.png" id="1_k25kl"]
+[ext_resource type="StyleBox" uid="uid://c41ctouudmw3t" path="res://assets/Themes/slider_fill.tres" id="2_ea2a2"]
+[ext_resource type="FontFile" uid="uid://dt7e3fcj8otp5" path="res://assets/SamuraiBlast-YznGj.ttf" id="3_61ma5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ogg3"]
+atlas = ExtResource("1_k25kl")
+region = Rect2(377.918, 297.815, 43.2419, 44.2921)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa0st"]
+atlas = ExtResource("1_k25kl")
+region = Rect2(428.864, 297.838, 42.296, 44.2422)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45sag"]
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[resource]
+HSlider/constants/grabber_offset = 1
+HSlider/icons/grabber = SubResource("AtlasTexture_0ogg3")
+HSlider/icons/grabber_highlight = SubResource("AtlasTexture_qa0st")
+HSlider/styles/grabber_area = ExtResource("2_ea2a2")
+HSlider/styles/grabber_area_highlight = ExtResource("2_ea2a2")
+HSlider/styles/slider = SubResource("StyleBoxEmpty_45sag")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/fonts/font = ExtResource("3_61ma5")

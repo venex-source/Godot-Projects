@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfyw3divqjwp4"]
+
+[ext_resource type="PackedScene" uid="uid://dagpivfww120q" path="res://scene/UserInterface/Level_Menu_UI/level_box.tscn" id="1_h45gv"]
+
+[node name="LevelGrid" type="GridContainer"]
+offset_right = 338.0
+offset_bottom = 338.0
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 3
+
+[node name="LevelBox" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+locked = false
+
+[node name="LevelBox2" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 2
+
+[node name="LevelBox3" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 3
+
+[node name="LevelBox4" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 4
+
+[node name="LevelBox5" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 5
+
+[node name="LevelBox6" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 6
+
+[node name="LevelBox7" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 7
+
+[node name="LevelBox8" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 8
+
+[node name="LevelBox9" parent="." instance=ExtResource("1_h45gv")]
+layout_mode = 2
+level_num = 9

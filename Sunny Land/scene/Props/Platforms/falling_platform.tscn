@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfj3t5sg4r5gp"]
+
+[ext_resource type="Script" path="res://scene/Props/Platforms/falling_platform.gd" id="1_53gw2"]
+[ext_resource type="Texture2D" uid="uid://bfh7iady8yqyl" path="res://assets/Sprites/Sunny-land-files/PNG/environment/layers/tileset.png" id="2_l3ueo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k4yt4"]
+atlas = ExtResource("2_l3ueo")
+region = Rect2(176.999, 159.973, 14.1887, 15.9454)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6frh5"]
+size = Vector2(14, 14.958)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in7rn"]
+size = Vector2(14, 15.288)
+
+[node name="Falling_Platform" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 0
+gravity_scale = 0.4
+lock_rotation = true
+freeze = true
+script = ExtResource("1_53gw2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_k4yt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.38419e-07)
+shape = SubResource("RectangleShape2D_6frh5")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("RectangleShape2D_in7rn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

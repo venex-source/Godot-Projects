@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bngbxwwdorf1o"]
+
+[ext_resource type="Script" path="res://scene/Collectables/base_collectable.gd" id="1_1b3td"]
+
+[node name="BaseCollectable" type="Area2D"]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource("1_1b3td")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxp2ycapik2b1"]
+
+[ext_resource type="Script" path="res://script/player.gd" id="1_6ht00"]
+[ext_resource type="Texture2D" uid="uid://bifvaykhd7a8v" path="res://asset/PNG/playerShip1_blue.png" id="1_dbw0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_goj4p"]
+radius = 21.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_6ht00")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_dbw0g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_goj4p")
+
+[node name="Muzzle" type="Node2D" parent="."]
+position = Vector2(0, -30)

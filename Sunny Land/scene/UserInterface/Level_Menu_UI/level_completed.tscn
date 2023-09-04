@@ -1,0 +1,238 @@
+[gd_scene load_steps=17 format=3 uid="uid://cv78fa8gnqfkn"]
+
+[ext_resource type="Texture2D" uid="uid://cs1hgh4pie8ut" path="res://assets/bg.png" id="1_8med1"]
+[ext_resource type="Script" path="res://scene/UserInterface/Level_Menu_UI/level_completed.gd" id="1_buvad"]
+[ext_resource type="Theme" uid="uid://yhnx08vjtvl6" path="res://assets/Themes/main.tres" id="2_b4cqi"]
+[ext_resource type="Texture2D" uid="uid://dpcgdvwb3u13o" path="res://assets/Sprites/game_buttons.png" id="4_bgwx7"]
+[ext_resource type="Texture2D" uid="uid://dbdfh1powy4hh" path="res://assets/Sprites/LevelComplete/YouWin.png" id="4_d60vf"]
+[ext_resource type="Texture2D" uid="uid://csmymuhhy64de" path="res://assets/Sprites/LevelComplete/star_4.png" id="5_f468k"]
+[ext_resource type="PackedScene" uid="uid://c7eqlaekl6wlr" path="res://scene/UserInterface/retry_button.tscn" id="6_8e8lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7xsn"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(100.612, 31.9282, 45.6842, 47.2955)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6ume"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(100.54, 162.133, 45.6742, 47.1094)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdvab"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(100.54, 162.133, 45.6742, 47.1094)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbk52"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(542.837, 31.8106, 46.485, 47.4046)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0qkp"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(542.675, 161.68, 46.6202, 47.4266)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6x2l"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(542.675, 161.68, 46.6202, 47.4266)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h5u6"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(416.513, 96.5131, 45.8093, 47.8912)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w7jy"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(416.685, 226.838, 45.7721, 47.5665)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31qvn"]
+atlas = ExtResource("4_bgwx7")
+region = Rect2(416.685, 226.838, 45.7721, 47.5665)
+filter_clip = true
+
+[node name="LevelCompleted" type="Panel"]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_buvad")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -286.5
+offset_top = -316.0
+offset_right = 286.5
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8med1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 23.0
+offset_top = 16.0
+offset_right = -38.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_b4cqi")
+
+[node name="MessageTexture" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+texture = ExtResource("4_d60vf")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="StarsTexture" type="TextureRect" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5_f468k")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimePlayedContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessgaeLabel" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TimePlayedContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Time Spent:"
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/TimePlayedContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 40
+text = "2 : 30"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CoinPickedContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MessgaeLabel" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/CoinPickedContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "Coins Picked:"
+
+[node name="Label2" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/VBoxContainer/CoinPickedContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 40
+text = "400"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="RetryBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RetryButton" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/RetryBoxContainer" instance=ExtResource("6_8e8lw")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/RetryBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/NextBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_w7xsn")
+texture_pressed = SubResource("AtlasTexture_v6ume")
+texture_hover = SubResource("AtlasTexture_mdvab")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/NextBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Next"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelsBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LevelsButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/LevelsBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_cbk52")
+texture_pressed = SubResource("AtlasTexture_i0qkp")
+texture_hover = SubResource("AtlasTexture_i6x2l")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/LevelsBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Levels"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HomeBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeButton" type="TextureButton" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/HomeBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_4h5u6")
+texture_pressed = SubResource("AtlasTexture_5w7jy")
+texture_hover = SubResource("AtlasTexture_31qvn")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/HomeBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Home"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/NextBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/LevelsBoxContainer/LevelsButton" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="TextureRect/MarginContainer/VBoxContainer/ButtonsContainer/HomeBoxContainer/HomeButton" to="." method="_on_home_button_pressed"]

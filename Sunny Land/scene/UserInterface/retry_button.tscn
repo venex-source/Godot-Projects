@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c7eqlaekl6wlr"]
+
+[ext_resource type="Texture2D" uid="uid://dpcgdvwb3u13o" path="res://assets/Sprites/game_buttons.png" id="1_xgsyb"]
+[ext_resource type="Script" path="res://scene/UserInterface/retry_button.gd" id="2_yp3h7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsgqd"]
+atlas = ExtResource("1_xgsyb")
+region = Rect2(163.918, 96.7837, 46.3502, 47.3508)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf8ai"]
+atlas = ExtResource("1_xgsyb")
+region = Rect2(163.864, 226.973, 46.4049, 47.2161)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fiwbl"]
+atlas = ExtResource("1_xgsyb")
+region = Rect2(163.864, 226.973, 46.4049, 47.2161)
+filter_clip = true
+
+[node name="RetryButton" type="TextureButton"]
+custom_minimum_size = Vector2(30, 30)
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_gsgqd")
+texture_pressed = SubResource("AtlasTexture_vf8ai")
+texture_hover = SubResource("AtlasTexture_fiwbl")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_yp3h7")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

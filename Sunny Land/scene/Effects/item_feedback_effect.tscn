@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://buce2xkhkhv3q"]
+
+[ext_resource type="Texture2D" uid="uid://ddna3r8ixyetv" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/item-feedback/item-feedback-1.png" id="1_2k2l0"]
+[ext_resource type="Texture2D" uid="uid://cvcqyxated2ga" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/item-feedback/item-feedback-2.png" id="2_6nhwc"]
+[ext_resource type="Texture2D" uid="uid://b2yteyk82h6vp" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/item-feedback/item-feedback-3.png" id="3_7h7uu"]
+[ext_resource type="Texture2D" uid="uid://dienu53bwr5mf" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/item-feedback/item-feedback-4.png" id="4_ucoeg"]
+[ext_resource type="Script" path="res://scene/Effects/base_effect.gd" id="5_n0t1w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xfcra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2k2l0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6nhwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7h7uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ucoeg")
+}],
+"loop": false,
+"name": &"Animate",
+"speed": 5.0
+}]
+
+[node name="ItemFeedbackEffect" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xfcra")
+animation = &"Animate"
+script = ExtResource("5_n0t1w")

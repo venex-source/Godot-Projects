@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://2vwidwhvncj0"]
+
+[ext_resource type="Texture2D" uid="uid://bmdcclk5ao2b6" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/enemy-death/enemy-death-1.png" id="1_1omgw"]
+[ext_resource type="Texture2D" uid="uid://c7aeevyv4dgsb" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/enemy-death/enemy-death-2.png" id="2_w0jc0"]
+[ext_resource type="Texture2D" uid="uid://ouogk4hgcq6n" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/enemy-death/enemy-death-3.png" id="3_ff3jx"]
+[ext_resource type="Texture2D" uid="uid://b0id2021bhogh" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/enemy-death/enemy-death-4.png" id="4_6pyg5"]
+[ext_resource type="Texture2D" uid="uid://bdnrwplpv0jo" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/enemy-death/enemy-death-5.png" id="5_tebry"]
+[ext_resource type="Texture2D" uid="uid://chch8dgpk1mbs" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/enemy-death/enemy-death-6.png" id="6_gtw0c"]
+[ext_resource type="Script" path="res://scene/Actor/enemies/enemy_death_animation.gd" id="7_8s7hc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2sf0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1omgw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_w0jc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ff3jx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6pyg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tebry")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gtw0c")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}]
+
+[node name="EnemyDeathAnimation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_q2sf0")
+animation = &"death"
+autoplay = "death"
+frame = 5
+frame_progress = 1.0
+script = ExtResource("7_8s7hc")

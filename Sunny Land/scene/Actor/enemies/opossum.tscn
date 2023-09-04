@@ -1,0 +1,322 @@
+[gd_scene load_steps=22 format=3 uid="uid://bece64n8qcwbc"]
+
+[ext_resource type="Script" path="res://scene/Actor/enemies/opossum.gd" id="1_1emyo"]
+[ext_resource type="Texture2D" uid="uid://dpxqg61ownx6h" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/opossum/opossum-1.png" id="2_lwqtv"]
+[ext_resource type="Texture2D" uid="uid://glu5yijdfnx5" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/opossum/opossum-2.png" id="3_bshw7"]
+[ext_resource type="Texture2D" uid="uid://xcwyth6cmolb" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/opossum/opossum-3.png" id="4_5opom"]
+[ext_resource type="Texture2D" uid="uid://bo248m8xpq0jj" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/opossum/opossum-4.png" id="5_88n3g"]
+[ext_resource type="Texture2D" uid="uid://bw3e6in7w84i0" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/opossum/opossum-5.png" id="6_qrxp3"]
+[ext_resource type="Texture2D" uid="uid://b1y7itli23cgq" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/opossum/opossum-6.png" id="7_ecv3w"]
+[ext_resource type="PackedScene" uid="uid://bq01whirr6okm" path="res://scene/Components/hit_box_component.tscn" id="8_6ava7"]
+[ext_resource type="PackedScene" uid="uid://beawcnp3onjot" path="res://scene/Components/attack_box_component.tscn" id="9_pp8gy"]
+[ext_resource type="PackedScene" uid="uid://duoica4hrjgci" path="res://scene/Components/HurtBoxComponent.tscn" id="10_fema5"]
+[ext_resource type="Script" path="res://scene/Components/GravityComponent.gd" id="10_jvh1b"]
+[ext_resource type="PackedScene" path="res://scene/Actor/enemies/stats.tscn" id="12_d674p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1x63w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lwqtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bshw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5opom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_88n3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qrxp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ecv3w")
+}],
+"loop": true,
+"name": &"opossum",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bghhl"]
+size = Vector2(14, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0y3u"]
+size = Vector2(128, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1paj"]
+size = Vector2(23.5, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmedf"]
+size = Vector2(21, 11)
+
+[sub_resource type="Animation" id="Animation_qtasg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBoxComponent/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBoxComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DangerDetectorRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DangerDetectorLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-21, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w5j5u"]
+resource_name = "move_left"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBoxComponent/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HurtBoxComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DangerDetectorRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DangerDetectorLeft:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-21, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x3mmb"]
+resource_name = "move_right"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HurtBoxComponent/CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.5, -2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBoxComponent/CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DangerDetectorLeft:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-16, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DangerDetectorRight:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(21, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lxsmu"]
+_data = {
+"RESET": SubResource("Animation_qtasg"),
+"move_left": SubResource("Animation_w5j5u"),
+"move_right": SubResource("Animation_x3mmb")
+}
+
+[node name="Opossum" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 8
+script = ExtResource("1_1emyo")
+SPEED = 50.0
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1x63w")
+animation = &"opossum"
+autoplay = "opossum"
+frame = 2
+frame_progress = 0.699723
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, 7)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_bghhl")
+debug_color = Color(0.458824, 0.447059, 1, 0.521569)
+
+[node name="AttackBoxComponent" parent="." instance=ExtResource("9_pp8gy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBoxComponent"]
+shape = SubResource("RectangleShape2D_s0y3u")
+debug_color = Color(0.168627, 0.639216, 0.235294, 0.419608)
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("8_6ava7")]
+position = Vector2(-4, 6)
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_j1paj")
+debug_color = Color(1, 1, 0.129412, 0.513726)
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("10_fema5")]
+position = Vector2(-4, 6.5)
+collision_mask = 128
+
+[node name="CollisionShape2D" parent="HurtBoxComponent" index="0"]
+position = Vector2(0.5, -2)
+shape = SubResource("RectangleShape2D_lmedf")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
+
+[node name="Stats" parent="." instance=ExtResource("12_d674p")]
+
+[node name="Gravity" type="Node" parent="."]
+script = ExtResource("10_jvh1b")
+
+[node name="DangerDetectorLeft" type="RayCast2D" parent="."]
+position = Vector2(-21, 0)
+target_position = Vector2(0, 18)
+collision_mask = 72
+hit_from_inside = true
+
+[node name="DangerDetectorRight" type="RayCast2D" parent="."]
+position = Vector2(15, 0)
+target_position = Vector2(0, 18)
+collision_mask = 72
+hit_from_inside = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lxsmu")
+}
+
+[connection signal="chase_began" from="AttackBoxComponent" to="." method="_on_chase_began"]
+[connection signal="chase_ended" from="AttackBoxComponent" to="." method="_on_chase_ended"]
+[connection signal="out_of_health" from="Stats" to="." method="_on_stats_out_of_health"]
+
+[editable path="HurtBoxComponent"]

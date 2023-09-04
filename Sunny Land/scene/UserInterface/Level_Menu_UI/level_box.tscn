@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dagpivfww120q"]
+
+[ext_resource type="Texture2D" uid="uid://dexv0l8ki603x" path="res://assets/levelbox.png" id="1_j3407"]
+[ext_resource type="Script" path="res://scene/UserInterface/Level_Menu_UI/level_box.gd" id="1_mmyu2"]
+[ext_resource type="Texture2D" uid="uid://b2vhnb1dxi215" path="res://assets/lock.png" id="3_ol0au"]
+
+[node name="LevelBox" type="TextureButton"]
+custom_minimum_size = Vector2(110, 110)
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("1_j3407")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("1_mmyu2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 96.0
+offset_bottom = 99.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LevelReady" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_ol0au")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

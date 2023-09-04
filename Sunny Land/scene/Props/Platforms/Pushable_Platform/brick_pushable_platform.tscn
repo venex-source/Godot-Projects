@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://btibcjefaknad"]
+
+[ext_resource type="PackedScene" path="res://scene/Props/Platforms/Pushable_Platform/base_pushable_platform.tscn" id="1_63da0"]
+[ext_resource type="Texture2D" uid="uid://qji5rh0jhpr4" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/block.png" id="2_va8fd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_saqk7"]
+size = Vector2(16, 16)
+
+[node name="BrickPushablePlatform" instance=ExtResource("1_63da0")]
+SPEED = 20.0
+
+[node name="Gravity" parent="." index="0"]
+acceleration = 300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_va8fd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_saqk7")

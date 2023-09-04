@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcr2nlan2of86"]
+
+[ext_resource type="PackedScene" path="res://scene/Props/Platforms/Pushable_Platform/base_pushable_platform.tscn" id="1_0hbuu"]
+[ext_resource type="Texture2D" uid="uid://bvim7gmdiopey" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/crate.png" id="2_ntw7e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxltf"]
+size = Vector2(16, 16)
+
+[node name="CratePushablePlatform" instance=ExtResource("1_0hbuu")]
+collision_mask = 72
+SPEED = 60.0
+
+[node name="Gravity" parent="." index="0"]
+acceleration = 200.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_ntw7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_yxltf")

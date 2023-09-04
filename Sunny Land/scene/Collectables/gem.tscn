@@ -1,0 +1,51 @@
+[gd_scene load_steps=11 format=3 uid="uid://bff1fpahsda1q"]
+
+[ext_resource type="PackedScene" uid="uid://bngbxwwdorf1o" path="res://scene/Collectables/base_collectable.tscn" id="1_jpl0w"]
+[ext_resource type="Script" path="res://scene/Collectables/gem.gd" id="2_k8lji"]
+[ext_resource type="Texture2D" uid="uid://cgso0lhoin6jp" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/gem/gem-1.png" id="3_c4ske"]
+[ext_resource type="Texture2D" uid="uid://c3dtca7igjsnv" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/gem/gem-2.png" id="4_f0rvh"]
+[ext_resource type="Texture2D" uid="uid://b83ch1nh7kv0" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/gem/gem-3.png" id="5_vfgqr"]
+[ext_resource type="Texture2D" uid="uid://c8cskajanyacp" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/gem/gem-4.png" id="6_uqsbb"]
+[ext_resource type="Texture2D" uid="uid://baws4hijlugy0" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/gem/gem-5.png" id="7_0eoln"]
+[ext_resource type="AudioStream" uid="uid://bq4cwdjnxokmr" path="res://assets/Audio/pickupCoin.wav" id="8_ph5o5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lm6r1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c4ske")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f0rvh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vfgqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uqsbb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0eoln")
+}],
+"loop": true,
+"name": &"play",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u3l7j"]
+radius = 5.0
+
+[node name="Gem" instance=ExtResource("1_jpl0w")]
+script = ExtResource("2_k8lji")
+coin_value = 100
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_lm6r1")
+animation = &"play"
+autoplay = "play"
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CircleShape2D_u3l7j")
+
+[node name="AudioStreamPlayer" parent="." index="2"]
+stream = ExtResource("8_ph5o5")

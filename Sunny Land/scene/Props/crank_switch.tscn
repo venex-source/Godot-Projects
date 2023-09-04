@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhe58fjer0slk"]
+
+[ext_resource type="Texture2D" uid="uid://dpjvp2skj6e08" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/crank-down.png" id="1_my3a8"]
+[ext_resource type="Script" path="res://scene/Props/crank_switch.gd" id="1_uuptn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmjhp"]
+size = Vector2(16, 10)
+
+[node name="CrankSwitch" type="Area2D"]
+collision_layer = 0
+input_pickable = false
+monitorable = false
+script = ExtResource("1_uuptn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_my3a8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_xmjhp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

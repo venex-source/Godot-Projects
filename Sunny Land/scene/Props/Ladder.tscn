@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy8fn6571o77b"]
+
+[ext_resource type="Texture2D" uid="uid://bfh7iady8yqyl" path="res://assets/Sprites/Sunny-land-files/PNG/environment/layers/tileset.png" id="1_dm84m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73syw"]
+size = Vector2(16, 16)
+
+[node name="Ladder" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dm84m")
+region_enabled = true
+region_rect = Rect2(111.798, 159.605, 16.4609, 16.6616)
+region_filter_clip_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_73syw")

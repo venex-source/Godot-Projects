@@ -1,0 +1,269 @@
+[gd_scene load_steps=20 format=3 uid="uid://bwvvekg464a7q"]
+
+[ext_resource type="Script" path="res://scene/UserInterface/hud.gd" id="1_gh7mm"]
+[ext_resource type="Theme" uid="uid://yhnx08vjtvl6" path="res://assets/Themes/main.tres" id="2_e5gqb"]
+[ext_resource type="Texture2D" uid="uid://cgso0lhoin6jp" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/gem/gem-1.png" id="3_sd2j3"]
+[ext_resource type="PackedScene" uid="uid://c5cyx16cy684f" path="res://scene/UserInterface/cherry_animation.tscn" id="4_s30ug"]
+[ext_resource type="Texture2D" uid="uid://dpcgdvwb3u13o" path="res://assets/Sprites/game_buttons.png" id="5_gqfxq"]
+[ext_resource type="PackedScene" uid="uid://c7eqlaekl6wlr" path="res://scene/UserInterface/retry_button.tscn" id="6_l0pse"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o710"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(352.837, 31.8643, 46.35, 47.0806)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w5a7"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(352.81, 161.811, 46.3501, 47.3505)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w017g"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(352.81, 161.811, 46.3501, 47.3505)
+filter_clip = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ispwn"]
+bg_color = Color(0.745098, 0.560784, 0.329412, 1)
+border_width_top = 4
+border_width_right = 8
+border_width_bottom = 4
+border_color = Color(0.588235, 0.772549, 0.356863, 1)
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_detail = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np4r5"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(668.728, 96.7567, 46.5402, 47.3235)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxrho"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(668.756, 227.027, 46.4852, 46.9451)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3cys"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(668.756, 227.027, 46.4852, 46.9451)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymtkq"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(479.756, 31.9056, 46.3502, 47.1881)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y36bo"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(479.756, 161.892, 46.3507, 46.9994)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd84f"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(479.756, 161.892, 46.3507, 46.9994)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rm8m"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(415.972, 96.9039, 47.2962, 47.0411)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2lkk"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(415.729, 226.972, 47.3507, 47.027)
+filter_clip = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbspb"]
+atlas = ExtResource("5_gqfxq")
+region = Rect2(415.729, 226.972, 47.3507, 47.027)
+filter_clip = true
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gh7mm")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseButton" type="TextureButton" parent="UI"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 96.0
+texture_normal = SubResource("AtlasTexture_1o710")
+texture_pressed = SubResource("AtlasTexture_0w5a7")
+texture_hover = SubResource("AtlasTexture_w017g")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -270.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 128.0
+grow_horizontal = 0
+
+[node name="HealthBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 3
+
+[node name="TextureRect" parent="UI/VBoxContainer/HealthBoxContainer" instance=ExtResource("4_s30ug")]
+layout_mode = 2
+
+[node name="TextureRect2" parent="UI/VBoxContainer/HealthBoxContainer" instance=ExtResource("4_s30ug")]
+layout_mode = 2
+
+[node name="TextureRect3" parent="UI/VBoxContainer/HealthBoxContainer" instance=ExtResource("4_s30ug")]
+layout_mode = 2
+
+[node name="CoinBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/VBoxContainer/CoinBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_sd2j3")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/VBoxContainer/CoinBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ispwn")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PauseSettigs" type="Control" parent="."]
+process_mode = 2
+visible = false
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_e5gqb")
+
+[node name="Panel" type="Panel" parent="PauseSettigs"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="PauseSettigs"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 96.0
+offset_bottom = 96.0
+texture_normal = SubResource("AtlasTexture_np4r5")
+texture_pressed = SubResource("AtlasTexture_yxrho")
+texture_hover = SubResource("AtlasTexture_n3cys")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="PauseSettigs"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 104.0
+offset_right = 135.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 80
+text = "Paused"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseSettigs"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -396.0
+offset_top = -88.0
+offset_right = 396.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseSettigs/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RetryButton" parent="PauseSettigs/HBoxContainer/VBoxContainer" instance=ExtResource("6_l0pse")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseSettigs/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Retry"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseSettigs/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsButton" type="TextureButton" parent="PauseSettigs/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_ymtkq")
+texture_pressed = SubResource("AtlasTexture_y36bo")
+texture_hover = SubResource("AtlasTexture_rd84f")
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="PauseSettigs/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Option"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PauseSettigs/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HomeButton" type="TextureButton" parent="PauseSettigs/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_3rm8m")
+texture_pressed = SubResource("AtlasTexture_x2lkk")
+texture_hover = SubResource("AtlasTexture_rbspb")
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="PauseSettigs/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Home"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="UI/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="PauseSettigs/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PauseSettigs/HBoxContainer/VBoxContainer2/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="PauseSettigs/HBoxContainer/VBoxContainer3/HomeButton" to="." method="_on_home_button_pressed"]

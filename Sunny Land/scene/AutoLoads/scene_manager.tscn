@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://5oate7xtbwew"]
+
+[ext_resource type="PackedScene" uid="uid://41ymy5j50iwy" path="res://scene/UserInterface/AudioSettings/option_settings.tscn" id="1_pgjsh"]
+[ext_resource type="Script" path="res://scene/AutoLoads/scene_manager.gd" id="1_r4e1f"]
+
+[node name="SceneManager" type="CanvasLayer"]
+script = ExtResource("1_r4e1f")
+
+[node name="OptionSettings" parent="." instance=ExtResource("1_pgjsh")]
+visible = false

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://d3nyhoy5mf4l5"]
+
+[ext_resource type="Texture2D" uid="uid://bcfmad4xa7m36" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/eagle/eagle-attack-1.png" id="1_e0jsj"]
+[ext_resource type="Texture2D" uid="uid://dya3d2jncxtpp" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/eagle/eagle-attack-2.png" id="2_e44gm"]
+[ext_resource type="Texture2D" uid="uid://e610tuwsef6o" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/eagle/eagle-attack-3.png" id="3_n8pqw"]
+[ext_resource type="Texture2D" uid="uid://dcdae4g60gce7" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/eagle/eagle-attack-4.png" id="4_33rrf"]
+[ext_resource type="Texture2D" uid="uid://dbr5v5kldsrwo" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/eagle/attack1.png" id="5_hyooj"]
+[ext_resource type="Texture2D" uid="uid://bos5bkwqqjr8d" path="res://assets/Sprites/Sunny-land-files/PNG/sprites/eagle/attack2.png" id="6_kd4ug"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c5r8c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_e0jsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e44gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n8pqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_33rrf")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hyooj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kd4ug")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 5.0
+}]
+
+[node name="Eagle" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c5r8c")
+animation = &"attack"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

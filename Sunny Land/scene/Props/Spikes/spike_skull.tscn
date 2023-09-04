@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://d35hker8adst6"]
+
+[ext_resource type="PackedScene" uid="uid://ckwdltc8p1vyb" path="res://scene/Props/Spikes/base_spike.tscn" id="1_iwtjd"]
+[ext_resource type="Texture2D" uid="uid://c4tqh6nqwdfnb" path="res://assets/Sprites/Sunny-land-files/PNG/environment/props/spike-skull.png" id="2_jjin3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oytli"]
+size = Vector2(15, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hlgt"]
+size = Vector2(14, 7)
+
+[node name="SpikeSkull" instance=ExtResource("1_iwtjd")]
+position = Vector2(0, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_jjin3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" index="0"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_oytli")
+debug_color = Color(1, 0, 0.141176, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_4hlgt")

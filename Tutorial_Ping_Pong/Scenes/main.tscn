@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo0a8jsd4venc"]
+
+[ext_resource type="PackedScene" uid="uid://cfoibuiulqxh6" path="res://Scenes/wall.tscn" id="1_csh00"]
+[ext_resource type="Script" path="res://Scenes/main.gd" id="1_sxb4g"]
+[ext_resource type="PackedScene" uid="uid://ddbymudab3a0o" path="res://Scenes/Paddles/paddle.tscn" id="2_e8hxt"]
+[ext_resource type="Script" path="res://Scenes/Paddles/enemy_paddle.gd" id="3_rlktx"]
+[ext_resource type="PackedScene" uid="uid://bbd3dn83tipiw" path="res://Scenes/ball.tscn" id="4_bkgm1"]
+[ext_resource type="PackedScene" uid="uid://nrp6gghb0ox5" path="res://edge.tscn" id="5_rtfny"]
+[ext_resource type="Texture2D" uid="uid://43eyqbl0d525" path="res://Assets/pingpongdottedline.png" id="7_46qgg"]
+[ext_resource type="PackedScene" uid="uid://bect6y8eww3up" path="res://ui.tscn" id="8_ywrw7"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_sxb4g")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="TopWall" parent="Walls" instance=ExtResource("1_csh00")]
+position = Vector2(10, -600)
+rotation = 1.5708
+scale = Vector2(1, 9)
+
+[node name="BottomWall" parent="Walls" instance=ExtResource("1_csh00")]
+position = Vector2(10, 600)
+rotation = 1.5708
+scale = Vector2(1, 9)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
+
+[node name="Paddle" parent="." instance=ExtResource("2_e8hxt")]
+position = Vector2(-1000, 0)
+
+[node name="EnemyPaddle" parent="." node_paths=PackedStringArray("ball") instance=ExtResource("2_e8hxt")]
+position = Vector2(1000, 0)
+script = ExtResource("3_rlktx")
+paddle_speed = 35000
+ball = NodePath("../Ball")
+
+[node name="Ball" parent="." instance=ExtResource("4_bkgm1")]
+
+[node name="Left Edge" parent="." instance=ExtResource("5_rtfny")]
+position = Vector2(-1036, 0)
+
+[node name="Right Edge" parent="." instance=ExtResource("5_rtfny")]
+position = Vector2(1038, 0)
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, -600)
+points = PackedVector2Array(0, 0, 0, 1200)
+width = 32.0
+texture = ExtResource("7_46qgg")
+texture_mode = 1
+
+[node name="UI" parent="." instance=ExtResource("8_ywrw7")]
+
+[connection signal="point_scored" from="Left Edge" to="." method="_on_enemy_scored"]
+[connection signal="point_scored" from="Right Edge" to="." method="_on_player_scored"]
